@@ -1,7 +1,7 @@
 package com.demo.login.service;
 
-import com.demo.login.model.Member;
-import com.demo.login.repository.MemberRepository;
+import com.demo.login.model.User;
+import com.demo.login.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,12 +17,12 @@ import java.util.Set;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
     @Autowired
-    private MemberRepository memberRepository;
+    private UserRepository userRepository;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member member = memberRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username);
 
         /*Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         for (MemberRole role : member.getRoles()){
@@ -32,6 +32,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ADMIN"));
 
-        return new org.springframework.security.core.userdetails.User(member.getUsername(), member.getPassword(), grantedAuthorities);
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 }

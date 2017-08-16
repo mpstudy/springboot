@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Board</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}"/>
+</head>
+
+<body>
+
+<div class="container">
+    <form class="form-signin" method="post">
+        <h2 class="form-signin-heading" th:text="${user.username}">님 반갑습니다</h2>
+        <a href="/profile">내 정보</a>
+        <a th:href="@{/logout}" class="btn btn-md btn-primary btn-block" style="width:200px">로그아웃</a>
+    </form>
+</div>
+</body>
+</html>

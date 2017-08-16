@@ -1,9 +1,12 @@
 package com.demo.login.service;
 
-import com.demo.login.model.Member;
+import com.demo.login.model.User;
 
 public interface UserService {
-    void save(Member user);
+    void save(User user);
+    void updatePassword(User user);
+    void updateToken(User user);
 
-    Member findByUsername(String username);
+    User findByUsername(String username);
+
 }

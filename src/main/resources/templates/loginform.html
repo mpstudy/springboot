@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>로그인 폼</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap-theme.min.css}"/>
+</head>
+
+<body>
+
+<div class="container">
+    <form class="form-signin" method="post" th:action="@{/login}">
+        <h2 class="form-signin-heading">로그인</h2>
+
+        <div th:if="${param.error}" class="alert alert-danger" style="width:200px">
+           	 잘못된 아이디나 암호입니다.
+        </div>
+        <div class="form-input">
+            <input type="text" class="form-control" name="username" placeholder="Username" required="required"
+                autofocus="autofocus" style="width:200px"/>
+        </div>
+        <div class="form-input">
+            <input type="password" class="form-control" name="password" placeholder="Password" required="required" style="width:200px"/>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input name="remember-me" type="checkbox"> Remember Me</input>
+            </label>
+        </div>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="login" style="width:200px">로그인</button>
+    </form>
+</div>
+</body>
+</html>
